@@ -1,0 +1,62 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'ag-grid-community/dist/styles/ag-grid.css';
+@import 'ag-grid-community/dist/styles/ag-theme-balham.css';
+@import "~ng-pick-datetime/assets/style/picker.min.css";
+
+.form-control{
+	width: 100%!important
+}
+.rightdiv{
+	    float: right;
+    top: 0px;
+}
+.itemlist{
+	top:0px;
+}
+.container{
+	margin-top: 6px;
+}
+.row{
+	    margin-right: 0px!important;
+    margin-left: 0px!important;
+}
+
+
+.content {
+  margin: auto;
+  background: white;
+  padding: 10px;
+}
+
+.col-sm-4,.col-sm-3{
+  margin-top:10px;
+  margin-bottom: 10px;
+}
+
+.modal.show,.modal-dialog{
+  margin-top :6%;
+  vertical-align: middle;
+  width:100%!important;
+}
+.label_form{
+      padding-top: 20px;
+}
+.header_bgcolor{
+  background-color: #f3eeee;
+}
+
+body{
+    font-family: "Calibri", sans-serif;
+     /*font-size: 14px;*/
+}
+
+.mandatory_labl{
+  color:red;
+}
+input[type=number] { text-align:right }
+
+.modal-content{
+  width: 1000px!important;
+  text-align: center!important;
+  margin-left: -250px!important;
+}

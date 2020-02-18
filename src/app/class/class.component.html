@@ -1,0 +1,125 @@
+
+<div class="row">
+  <div class="col-sm-3"> <h4>My company list</h4></div>
+  <div class="col-sm-3"></div>
+  <div class="col-sm-3"></div>
+  <div class="col-sm-3">
+  </div>
+</div>
+<br>
+
+
+<div class="col-sm-12 listDetailsBox">
+<p style="float: right;">Total : {{companies?.length}}</p>
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th class="greyTd">First Name</th>
+      <th class="greyTd">Last Name</th>
+      <th class="greyTd">Company Name</th>
+      <th class="greyTd">Email</th>
+      <th class="greyTd">status</th>
+      <th class="greyTd">Created At</th>
+      <th class="greyTd">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngIf="companies?.length===0">
+      No companies listed Yet!.
+    </tr>
+
+    <tr *ngFor="let item of companies; let i=index">
+      <!-- <td>{{i+1}}</td> -->
+      <td>{{item.first_name ? item.first_name : '--'}}</td>
+      <td>{{item.last_name ? item.last_name : '--'}}</td>
+      <td>{{item.company_name ? item.company_name : '--'}}</td>
+      <td>{{item?.Email ? item?.Email : '--'}}</td>
+      <td>{{item?.company_license ? item?.company_license : '--'}}</td>
+      <td>{{item.CreatedAt ? item.CreatedAt : '--'}}</td> 
+      <td>
+       <img src="../../assets/images/delete.png" class="clsDelete" (click)="deactivateComapny(item,i);">&nbsp;&nbsp;
+        <img src="../../assets/images/detail.png" class="clsDelete" (click)="viewCompany(item,i);" style="cursor:pointer;">
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+</div>
+
+
+
+
+ <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4>Edit Company</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <!-- <button type="button" class="close" (click)="close()">&times;</button> -->
+      </div>
+
+  <form class="form-signin card" [formGroup]="companyForm">
+
+     <div class="row">
+    <div class="col-sm-4">first Name<span class="mandatory_labl">*</span></div>
+    <div class="col-sm-8">  <input type="text" class="form-control mt-3" required="" autofocus="" formControlName="first_name"> </div>
+    <div class="small" *ngIf="!companyForm.controls['first_name'].valid&&companyForm.controls['first_name'].dirty" class="redlabe">
+        <span *ngIf="companyForm.controls['first_name'].errors['required']" class="small redlabe text-danger">first_name cannot be left blank</span>
+      </div>
+  </div>
+
+ <div class="row">
+    <div class="col-sm-4">last Name<span class="mandatory_labl">*</span></div>
+    <div class="col-sm-8">  <input type="text" class="form-control mt-3" required="" autofocus="" formControlName="last_name"> </div>
+    <div class="small" *ngIf="!companyForm.controls['last_name'].valid&&companyForm.controls['last_name'].dirty" class="redlabe">
+        <span *ngIf="companyForm.controls['last_name'].errors['required']" class="small redlabe text-danger">last_name cannot be left blank</span>
+      </div>
+  </div>
+
+   <div class="row">
+    <div class="col-sm-4">company Name<span class="mandatory_labl">*</span></div>
+    <div class="col-sm-8">  <input type="text" class="form-control mt-3" required="" autofocus="" formControlName="company_name"> </div>
+    <div class="small" *ngIf="!companyForm.controls['company_name'].valid&&companyForm.controls['company_name'].dirty" class="redlabe">
+        <span *ngIf="companyForm.controls['company_name'].errors['required']" class="small redlabe text-danger">company_name cannot be left blank</span>
+      </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-4">Email Name<span class="mandatory_labl">*</span></div>
+    <div class="col-sm-8">  <input type="text" class="form-control mt-3" required="" autofocus="" formControlName="email" disabled="true"> </div>
+    <div class="small" *ngIf="!companyForm.controls['email'].valid&&companyForm.controls['email'].dirty" class="redlabe">
+        <span *ngIf="companyForm.controls['email'].errors['required']" class="small redlabe text-danger">email cannot be left blank</span>
+      </div>
+  </div>
+
+   <div class="row">
+    <div class="col-sm-4">license_start_date<span class="mandatory_labl">*</span></div>
+    <div class="col-sm-8">  <input type="text" class="form-control mt-3" required="" autofocus="" formControlName="license_start_date"> </div>
+    <div class="small" *ngIf="!companyForm.controls['license_start_date'].valid&&companyForm.controls['license_start_date'].dirty" class="redlabe">
+        <span *ngIf="companyForm.controls['license_start_date'].errors['required']" class="small redlabe text-danger">license_start_date cannot be left blank</span>
+      </div>
+  </div>
+
+
+   <div class="row">
+    <div class="col-sm-4">license_end_date<span class="mandatory_labl">*</span></div>
+    <div class="col-sm-8">  <input type="text" class="form-control mt-3" required="" autofocus="" formControlName="license_end_date"> </div>
+    <div class="small" *ngIf="!companyForm.controls['license_end_date'].valid&&companyForm.controls['license_end_date'].dirty" class="redlabe">
+        <span *ngIf="companyForm.controls['license_end_date'].errors['required']" class="small redlabe text-danger">license_end_date cannot be left blank</span>
+      </div>
+  </div>
+
+
+
+ </form>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" (click)="updateCompany()">Update</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+
+
