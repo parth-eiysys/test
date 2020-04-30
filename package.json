@@ -30,7 +30,7 @@
     "bootstrap": "^4.2.1",
     "chartist": "^0.11.0",
     "core-js": "^2.5.4",
-    "jquery": "^3.3.1",
+    "jquery": "^3.5.0",
     "ng-pick-datetime": "^6.0.16",
     "perfect-scrollbar": "^1.4.0",
     "rxjs": "^6.3.3",
